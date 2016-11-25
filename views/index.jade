@@ -1,19 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p The purpose of this experiment is to conduct a study about reading performance changes of a person while using an adaptive reading system as compared to a non-adaptive e-reading system.
+    div.main-div
+        h1= title
+        p The purpose of this experiment is to conduct a study about reading performance changes of a person while using an adaptive reading system as compared to a non-adaptive e-reading system.
 
-    form(method='post')
-        div.intro-form
-
-            div.clear
+        form(name="newuser", method='post', action="/newuser")
             input(type="text", placeholder="Name" , id="name")
             input(type="text", placeholder="Age" , id="age")
             input(type="text", placeholder="Sex" , id="sex")
             input(type="text", placeholder="Nationality" , id="nationality")
             input(type="text", placeholder="Fluency(English)" , id="fluency")
-
             div.clear
-            input(type='button', class="button submit_btn transition", value='Continue', onclick='qwe()')
+            input(type='submit', class="button submit_btn transition", value='Continue')
 

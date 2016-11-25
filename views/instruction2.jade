@@ -1,0 +1,13 @@
+//
+   Created by akpillai on 24/11/2016.
+
+extends layout
+
+block content
+    div.main-div
+        h1= title
+
+        p For task 2, you are required to read a block of text which will adaptively scroll according to your reading  speed. The text will appear after you click the next button. After reading the passage, click 'Finish' button to complete the task. You will then be asked to fill a small questionaire for research evaluation purpose.
+            form(name="instruction2", method='post', action="/instruction2")
+                div.clear
+                input(type='submit', class="button submit_btn transition right", value='Next')

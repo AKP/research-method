@@ -15,24 +15,6 @@ a {
   color: #00B7FF;
 }
 
-
-button {
-  padding: 10px 30px;
-  border-radius: 8px;
-  float: left;
-  color:#417fb2;
-  border: 1px solid #ccc;
-  border-bottom: 4px solid #ccc;
-  position: relative;
-  font-weight: 300;
-  background: #ffffff;
-
-}
-
-.button:hover{color:#ccc;}
-
-
-
 .transition {
   -webkit-transition: all 500ms linear;
   -moz-transition: all 500ms linear;
@@ -47,6 +29,7 @@ input {
   outline: none;
   padding: 0px 0px 0px 10px;
   float: left;
+  /*display: inline-block;*/
   display: block;
   width: 80%;
   height: 45px;
@@ -65,16 +48,32 @@ input {
   max-width: 800px;
 }
 
+button {
+  padding: 10px 30px;
+  border-radius: 8px;
+  float: left;
+  color:#417fb2;
+  border: 1px solid #ccc;
+  border-bottom: 4px solid #ccc;
+  position: relative;
+  font-weight: 300;
+  background: #ffffff;
+  display: inline-block;
+}
+
+.button:hover{color:#ccc;}
+
 .submit_btn {
   border: 1px solid #ccc;
   margin-top: 20px;
   padding: 10px 25px 10px 25px;
   color: #417fb2;
-  width: 40%;
+  width: auto;
   float: left;
   cursor: pointer;
   border-radius: 6px;
   border-bottom: 4px solid #ccc;
+  display: inline-block;
 }
 
 .clear {
@@ -91,4 +90,14 @@ input {
     height: 35px
   }
 
+}
+
+.task1{
+  padding: 50px;
+}
+.main-div{
+  padding: 50px;
+}
+.right{
+  float: right;
 }

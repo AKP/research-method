@@ -1,0 +1,13 @@
+//
+   Created by akpillai on 24/11/2016.
+
+extends layout
+
+block content
+    div.main-div
+        h1= title
+
+        p For task 1, you are required to read a block of text. The text will appear after you click the next button. After reading the passage, click 'Finish' button to complete the task. You will then be asked to fill a small questionaire for research evaluation purpose.
+            form(name="instruction1", method='post', action="/instruction1")
+                div.clear
+                input(type='submit', class="button submit_btn transition right", value='Next')
