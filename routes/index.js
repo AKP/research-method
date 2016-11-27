@@ -8,7 +8,48 @@ router.get('/', function(req, res, next) {
 
 /* POST to Add User Service */
 router.post('/newuser', function(req, res) {
-  res.redirect("instruction1");
+
+    // Set our internal DB variable
+    var db = req.db;
+
+    // Get our form values. These rely on the "name" attributes
+    var name = req.body.name;
+    var sex = req.body.sex;
+    var nationality = req.body.nationality;
+    var fluency = req.body.fluency;
+    var age= req.body.age;
+
+
+    // Set our collection
+    var collection = db.get('userdata');
+    //Randomize the website order and save to a global variable
+
+    // Submit to the DB
+    collection.insert({
+        "username" : name,
+        "sex" : sex,
+        "nationality" : nationality,
+        "fluency" : fluency,
+        "age" : age
+    }, function (err, doc) {
+        if (err) {
+            // If it failed, return error
+            res.send("There was a problem adding the information to the database.");
+            console.log(err);
+        }
+        else {
+            // And forward to success page
+            console.log(doc);
+            console.log("User age is ");
+            var abc = doc ._id;
+            // console.log("User added as " + doc._id);
+            req.session.user = abc;
+            req.session.list = list;
+            res.redirect("instruction1");
+        }
+    });
+
+    res.redirect("instruction1");
 });
 
 router.get('/instruction1', function(req, res, next) {
