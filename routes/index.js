@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
+
+var name;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -41,10 +44,9 @@ router.post('/newuser', function(req, res) {
             // And forward to success page
             console.log(doc);
             console.log("User age is ");
-            var abc = doc ._id;
+            name = doc.name;
             // console.log("User added as " + doc._id);
-            req.session.user = abc;
-            req.session.list = list;
+            req.session.user = name;
             res.redirect("instruction1");
         }
     });
@@ -53,23 +55,58 @@ router.post('/newuser', function(req, res) {
 });
 
 router.get('/instruction1', function(req, res, next) {
-  res.render('instruction1', { title: 'Task 1 : Instructions' });
+  res.render('instruction1', req);
 });
 
 router.post('/instruction1', function(req, res) {
+    name = req.session.user;
+    req.session.user = name;
   res.redirect("task1");
 });
 
 router.get('/task1', function(req, res, next) {
-  res.render('task1');
+  res.render('task1', req);
 });
 
 router.post('/task1', function(req, res) {
-  res.redirect('instruction2');
+
+    var db = req.db;
+    name = req.session.user;
+    req.session.user = name;
+
+    var collection = db.get('userTiming');
+    var fluency = req.body.fluency;
+
+    var timeElapsed = req.body.timeElapsed;
+    console.log("User took " + timeElapsed);
+
+
+    // Submit to the DB
+    collection.insert({
+        "username" : name,
+        "timeElapsed" : timeElapsed
+    }, function (err, doc) {
+        if (err) {
+            // If it failed, return error
+            res.send("There was a problem adding the information to the database.");
+            console.log(err);
+        }
+        else {
+            // And forward to success page
+            console.log(doc);
+            // var name = doc ._id;
+            // console.log("User added as " + doc._id);
+            req.session.user = name;
+            // req.session.list = list;
+            res.redirect("instruction1");
+        }
+    });
+
+    res.redirect('instruction2');
 });
 
 router.get('/instruction2', function(req, res, next) {
-  res.render('instruction2', { title: 'Task 2 : Instructions' });
+  res.render('instruction2', req);
 });
 
 router.post('/instruction2', function(req, res) {

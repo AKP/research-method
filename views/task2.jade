@@ -4,6 +4,25 @@
 extends layout
 
 block content
+
+
+    script(src="javascripts/slowautoscroll.js").
+    script.
+        $(document).ready(function () {
+            autoScroll(settings.slowSpeed);
+        });
+
+    ul.scroller
+        li.scroll Speed
+        ul.speeds
+            li.slow
+                img.img(src="images/turtle.png")
+            li.med
+                img.img(src="images/rabbit.png")
+            li.fast
+                img.img(src="images/cheetah.png")
+
+
     div.task1
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla massa odio, sit amet condimentum neque accumsan at. Proin et lectus ullamcorper, rhoncus metus rutrum, interdum felis. Fusce placerat mi quis vehicula gravida. Quisque bibendum augue iaculis dictum scelerisque. Sed gravida nunc vitae pellentesque congue. Quisque vulputate ac ex sed imperdiet. Quisque ornare dapibus nisi. Nam consectetur nulla eu lacus eleifend finibus. Nam gravida neque et lectus volutpat, id vehicula velit eleifend. Sed pretium purus congue augue vehicula convallis. Vivamus in faucibus turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla sit amet dictum felis. Nulla condimentum est vitae orci consectetur, eget facilisis lacus suscipit.
 

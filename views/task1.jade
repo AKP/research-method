@@ -2,8 +2,26 @@
    Created by akpillai on 25/11/2016.
 
 extends layout
+//var endTime = new Date();
+    //timeElapsed = endTime - startTime;
+    //document.forms['task1'].submit();
 
 block content
+    script.
+        var startTime;
+
+        $(document).ready(function () {
+            startTime = new Date();
+        });
+
+
+        function timeCalculation(){
+            var endTime = new Date();
+            var timeElapsed = endTime - startTime;
+            document.getElementById("time").value = parseInt(timeElapsed);
+            document.forms['task1'].submit();
+        }
+
     div.task1
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla massa odio, sit amet condimentum neque accumsan at. Proin et lectus ullamcorper, rhoncus metus rutrum, interdum felis. Fusce placerat mi quis vehicula gravida. Quisque bibendum augue iaculis dictum scelerisque. Sed gravida nunc vitae pellentesque congue. Quisque vulputate ac ex sed imperdiet. Quisque ornare dapibus nisi. Nam consectetur nulla eu lacus eleifend finibus. Nam gravida neque et lectus volutpat, id vehicula velit eleifend. Sed pretium purus congue augue vehicula convallis. Vivamus in faucibus turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla sit amet dictum felis. Nulla condimentum est vitae orci consectetur, eget facilisis lacus suscipit.
 
@@ -19,8 +37,18 @@ block content
 
         p Phasellus laoreet risus vitae lorem cursus condimentum. Sed semper, justo vitae laoreet pulvinar, magna tellus vestibulum ante, a sagittis libero lectus varius quam. Sed mattis interdum commodo. Donec in odio ac purus imperdiet viverra quis eget massa. Donec tristique pellentesque euismod. In venenatis bibendum elit, eget convallis augue volutpat in. Etiam porttitor mi at eros ultricies maximus. Phasellus gravida fermentum ex vel commodo. Nam non odio mattis, fermentum felis eu, gravida nisl.
 
+        p Donec varius mattis nunc id bibendum. Morbi fringilla augue eget mauris egestas consectetur. Ut ac congue elit. Pellentesque non pulvinar orci, at faucibus justo. Mauris non varius magna, in auctor velit. Maecenas sit amet est dui. Praesent ut elit justo.
+
+        p Praesent tempus tortor at placerat vulputate. Aliquam eleifend ligula sed dui consequat cursus. Fusce venenatis mauris mauris. Etiam neque massa, efficitur et leo vitae, porttitor mollis neque. Praesent eu dui volutpat, egestas magna sed, porta ipsum. Pellentesque dapibus augue eget justo facilisis scelerisque. Sed eu odio elit. Maecenas sit amet nibh nec ligula hendrerit commodo. Etiam tempus, quam vitae dignissim pellentesque, ligula quam hendrerit mi, vitae volutpat magna metus in felis. Quisque augue lacus, rutrum nec orci ornare, tincidunt viverra nulla. Aliquam nec rhoncus quam. Nam gravida nibh in augue posuere, ut fermentum ex ullamcorper.
+
+        p Praesent sodales in dui in tincidunt. Duis vel elit mattis, euismod turpis sit amet, congue nisi. Sed sed leo at tortor viverra dignissim vel eget ante. Morbi odio ante, mollis non efficitur sed, gravida a lectus. Aliquam dictum neque tempus lorem viverra lobortis. Praesent pretium felis at placerat fringilla. Fusce at viverra tellus. Praesent venenatis purus quis mauris dapibus aliquet. Mauris purus sem, sodales eu suscipit eget, scelerisque vel massa. Quisque sit amet nisl vitae ligula commodo auctor vel et est. Integer id tincidunt dui. Sed sagittis quis ligula vel dapibus. Vivamus aliquam venenatis tortor nec fringilla. Proin pellentesque est purus, et ullamcorper leo scelerisque ut. Mauris convallis, sem et sodales tincidunt, nisl eros congue lacus, ac interdum metus velit vel risus. Donec porta metus faucibus sem gravida dignissim.
+
+        p Phasellus laoreet risus vitae lorem cursus condimentum. Sed semper, justo vitae laoreet pulvinar, magna tellus vestibulum ante, a sagittis libero lectus varius quam. Sed mattis interdum commodo. Donec in odio ac purus imperdiet viverra quis eget massa. Donec tristique pellentesque euismod. In venenatis bibendum elit, eget convallis augue volutpat in. Etiam porttitor mi at eros ultricies maximus. Phasellus gravida fermentum ex vel commodo. Nam non odio mattis, fermentum felis eu, gravida nisl.
+
         p Nam fringilla diam eget mauris maximus bibendum. Mauris rutrum tristique maximus. Vestibulum nisi lectus, varius eget tempus eget, congue sed libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed pharetra massa sed dolor elementum mattis. Pellentesque ultricies ante ut sem gravida elementum. Mauris et sagittis elit. Fusce ultricies vestibulum fermentum. Ut eget aliquam nibh. Morbi vitae nibh et erat mollis pretium. Morbi porta tincidunt ultricies. Donec tincidunt hendrerit ante, quis lacinia risus tincidunt non.
-    form(name="task1", method='post', action="/task1")
-        div.intro-form
-           div.clear
-           input(type='submit', class="button submit_btn transition right", value='Next')
+        form(name="task1", method='post', action="/task1")
+            //div.intro-form
+            //   div.clear
+            input(type='hidden', name="timeElapsed", value="", id="time")
+            input(type="text", placeholder="Fluency(English)" , name="fluency")
+            input(type='button', onclick='timeCalculation()', class="button submit_btn transition right", value='Next')
