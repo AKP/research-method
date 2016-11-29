@@ -17,6 +17,7 @@ $.fn.slowautoscroll = function(options) {
     mediumSpeed: 40000, 
     fastSpeed: 20000
   };
+
   // make user amounts happen 
   $.extend(settings, options);
   console.log(settings);
