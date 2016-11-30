@@ -14,10 +14,7 @@ var db = monk('mongodb://test:password@ds163667.mlab.com:63667/heroku_09899v48')
 //     console.log('Connected correctly to server')
 // })
 
-// console.log('Connected correctly to server1')
-
-
-var index = require('./routes/index');
+var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
@@ -45,7 +42,7 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use('/', index);
+app.use('/', routes);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
