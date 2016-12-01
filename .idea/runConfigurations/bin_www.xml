@@ -3,13 +3,13 @@
     <envs>
       <env name="DEBUG" value="research-method:*" />
     </envs>
-    <browser start="true" url="http://localhost:3000/" />
+    <browser start="true" url="http://localhost:8080/" />
     <profiling v8-profiler-path="" />
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSProfilingRunConfigurationExtension">
       <profiling v8-profiler-path="" />
     </EXTENSION>
     <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
-      <browser start="true" url="http://localhost:3000/" />
+      <browser start="true" url="http://localhost:8080/" />
     </EXTENSION>
     <method />
   </configuration>

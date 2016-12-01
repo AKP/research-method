@@ -75,7 +75,7 @@ router.post('/task1', function(req, res) {
     req.session.user = name;
 
     var collection = db.get('userTiming');
-    var fluency = req.body.fluency;
+    // var fluency = req.body.fluency;
 
     var timeElapsed = req.body.timeElapsed;
     console.log("User took " + timeElapsed);
