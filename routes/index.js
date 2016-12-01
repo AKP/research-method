@@ -9,6 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Adaptive e-reading' });
 });
 
+router.get('/index', function(req, res, next) {
+    res.render('index', { title: 'Adaptive e-reading' });
+});
+
 /* POST to Add User Service */
 router.post('/newuser', function(req, res) {
 
